@@ -1,0 +1,51 @@
+1. Was passiert, wenn man einem Känguru eine Sonnenbrille aufsetzt?
+A) Es verwandelt sich in einen Koala
+B) Es startet eine Modenschau
+C) Es sieht einfach nur cool aus
+D) Es hüpft rückwärts
+
+Richtige Antwort: C) Es sieht einfach nur cool aus 😎
+
+2. Welche dieser Aussagen ist für eine Katze absolut logisch?
+A) Der Staubsauger ist das Böse in Person
+B) Hunde sind meine besten Freunde
+C) Menschen existieren, um mich zu bedienen
+D) Ich liebe es, nass zu werden
+
+Richtige Antwort: C) Menschen existieren, um mich zu bedienen 🐱👑
+
+3. Warum hat das Huhn die Straße überquert?
+A) Um Pokémon zu fangen
+B) Weil es auf der anderen Seite WLAN gibt
+C) Es war auf der Suche nach einem Ei-Mac
+D) Niemand weiß es – es ist ein Huhn
+
+Richtige Antwort: B) Weil es auf der anderen Seite WLAN gibt 📶🐔
+
+4. Was wäre ein ungeeigneter Name für einen Pizzalieferdienst?
+A) Pizza Blitz
+B) Heiß & Knusprig
+C) Schlepp & Schimmel
+D) Bella Napoli
+
+Richtige Antwort: C) Schlepp & Schimmel 🤢🍕
+
+5. Was ist die natürlichste Reaktion, wenn man Lego barfuß betritt?
+A) Tief durchatmen und meditieren
+B) "Ah, ein Wellnessmoment für die Füße!"
+C) Laut schreien und das Lego verfluchen
+D) Sofort ein Haus daraus bauen
+
+Richtige Antwort: C) Laut schreien und das Lego verfluchen 😫🧱
+
+6. Was denkt ein Kühlschrank, wenn du mitten in der Nacht die Tür aufmachst?
+A) "Schon wieder du?"
+B) "Endlich ein bisschen Licht!"
+C) "Ich hab dich gar nicht vermisst."
+D) "Tu so, als wärst du leer."
+
+Richtige Antwort: A) "Schon wieder du?" 😅🧊
+
+Abfrage JSON-Array
+
+questions[0][„answer_3“] = „Placeholder“
