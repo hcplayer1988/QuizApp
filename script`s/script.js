@@ -49,25 +49,79 @@ let questions = [
     },
 ];
 
+let rightQuestions = 0;
 let currentQuestion = 0;
 
 
 function init() {
     document.getElementById('all_questions').innerHTML = questions.length;
+    
 
     showQuestion()
 }
 
-
+// Anzeige der Frage welche Angezeigt wird und Anzeige derer
 function showQuestion() {
-    let question = questions[currentQuestion]; /* question(variable question wird erstellt) istgleich
+
+   if (currentQuestion >= questions.length) {   // hier wird die Anzahl der Fragen verglichen (lännge vomm JSSON Array) und wenn die nächsste Frage die länge vom Array übersteigen würde bricht diese Funktion ab! 
+    document.getElementById('endScreen').style = ''; //
+    document.getElementById('questionBody').style = 'display: none';
+    document.getElementById('questionNumbers').innerHTML = questions.length;
+    document.getElementById('amountOfRightQuestions').innerHTML = rightQuestions;
+  } else {
+   let question = questions[currentQuestion]; /* question(variable question wird erstellt) istgleich
                                                  quetions(hier wird auf das JArray oben zugegriffen)
                                                  [currentquestion] (hier wird die stelle aufgerufen welche
                                                  in der Variable currentQuestion definiert ist. In dem
                                                  Fall, die Stelle 0) (Modul 7 Vido 7(QuizApp))*/
-    document.getElementById('questiontext').innerHTML = question['question'];
-    document.getElementById('answer_1').innerHTML = question['answer_1'];
-    document.getElementById('answer_2').innerHTML = question['answer_2'];
-    document.getElementById('answer_3').innerHTML = question['answer_3'];
-    document.getElementById('answer_4').innerHTML = question['answer_4'];
+   document.getElementById('current_question').innerHTML = currentQuestion +1;
+   document.getElementById('questiontext').innerHTML = question['question'];
+   document.getElementById('answer_1').innerHTML = question['answer_1'];
+   document.getElementById('answer_2').innerHTML = question['answer_2'];
+   document.getElementById('answer_3').innerHTML = question['answer_3'];
+   document.getElementById('answer_4').innerHTML = question['answer_4'];
+   }
 }
+
+
+// Auswahl des geklickten Buttons
+function answer(selection) {                       // in der Klammer wird eine Variable definiert der entweder der Wert answer_1, answer_2, usw. zugewiesen wird sobald auf den jeweiligen button gedrückt wird
+   let question = questions[currentQuestion];      // erklärung hier siehe function showQuestion().
+   let slectedQuestionNummber = selection.slice(-1); // hier zieht die slice methode aus der Variable selection den -1. Wert aus dem string. Sie fängt also von hinten an zu zählen und gibt den letzten zeichenn in ein neues Array 
+   let idOfRightAnswer = `answer_${question['right_answer']}`; // hier wird die Variable für die richtige Antwort definiert umm im else Teil darauf zugreifen zu können.
+
+   if (slectedQuestionNummber == question['right_answer']) {
+      document.getElementById(selection).classList.add('bg-success'); //mit :document.getElementById(selection).parentNode.classList.add('bg-success'); -> kann dem übergeordneteten div diese klasse verliehen werden. 
+      rightQuestions++;
+   } else {
+      document.getElementById(selection).classList.add('bg-danger');
+      document.getElementById(idOfRightAnswer).classList.add('bg-success'); // diese Zeile sorgt dafür wenn eine falsche Antwort gedrückt wird dass die richtige Antwort auch angezeigt wird
+   }
+      document.getElementById('next_btn').disabled = false; // dass sorgt dafür, wenn die if else bedingungen erfülltsind dass der button mmit der id next_btn wieder aktiviert wird.
+}
+
+
+function nextQuestion() {
+   currentQuestion++;   // hier wird auf die Variable currentQuestion zugegriffen und mitt ++ wird ssie jedes mal um eins erhöht sobald der butten betätigt wird!
+   document.getElementById('next_btn').disabled = true; // setzt den Button wieder auf "disabled"!
+   resetAnswerButtons(); // ruft die function resetAnswerButtons() auf
+   showQuestion();   //ruft nach dem Button diese funktion auf und da der button den count um 1 erhöht wird die nächste Frage angezeigt
+   
+}
+
+
+// die hier eingetragenen Zeilen entfernen die classen welche die Antworten färben von den Antworten -> wird in nextQuestion ausgeführt bevor die nächste Frage aangezeigt wird
+function resetAnswerButtons() {
+   document.getElementById('answer_1').classList.remove('bg-danger');
+   document.getElementById('answer_1').classList.remove('bg-success');
+   document.getElementById('answer_2').classList.remove('bg-danger');
+   document.getElementById('answer_2').classList.remove('bg-success');
+   document.getElementById('answer_3').classList.remove('bg-danger');
+   document.getElementById('answer_3').classList.remove('bg-success');
+   document.getElementById('answer_4').classList.remove('bg-danger');
+   document.getElementById('answer_4').classList.remove('bg-success');
+
+
+}
+
+
